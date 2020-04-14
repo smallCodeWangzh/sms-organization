@@ -1,0 +1,15 @@
+server:
+  port: 9999
+swagger:
+  base-package: com.briup.organization.web.controller
+  title:  "钉钉对接的接口文档"
+  description: "杰普开发团队 http://www.briup.com"
+  contact:
+    url: "http://www.briup.com"
+    email: "wangzh@briup.com"
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.16.0.4:3306/sms?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: 123456
