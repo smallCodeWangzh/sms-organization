@@ -4,8 +4,8 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * 部门类
- * @author wangzh@briup.com
+ * tb_deparment
+ * @author 
  */
 @Data
 public class Deparment implements Serializable {
