@@ -111,7 +111,7 @@
                 <version>0.4.13</version>
                 <configuration>
                     <!--imaname是将要创建的镜像名称-->
-                    <imageName>172.16.0.4:5000/${project.artifactId}:${project.version}
+                    <imageName>172.16.0.47:5000/${project.artifactId}:${project.version}
                     </imageName>
                     <baseImage>jdk1.8</baseImage>
                     <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]
@@ -123,7 +123,7 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
-                    <dockerHost>http://172.16.0.4:2375</dockerHost>
+                    <dockerHost>http://172.16.0.47:2375</dockerHost>
                 </configuration>
             </plugin>
         </plugins>
