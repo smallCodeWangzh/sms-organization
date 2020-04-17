@@ -10,6 +10,6 @@ swagger:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.16.0.4:3306/sms?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://172.16.0.47:3306/sms?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
     username: root
     password: 123456
