@@ -12,7 +12,6 @@ import com.dingtalk.api.request.OapiUserGetRequest;
 import com.dingtalk.api.response.OapiUserGetDeptMemberResponse;
 import com.dingtalk.api.response.OapiUserGetResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.sun.tools.javac.jvm.Code;
 import com.taobao.api.ApiException;
 
 /**
