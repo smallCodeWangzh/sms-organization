@@ -2,8 +2,10 @@ package com.briup.organization.mapper;
 
 import com.briup.organization.bean.Deparment;
 import com.briup.organization.bean.DeparmentExample;
-import java.util.List;
+import com.dingtalk.api.response.OapiDepartmentListResponse;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface DeparmentMapper {
     long countByExample(DeparmentExample example);

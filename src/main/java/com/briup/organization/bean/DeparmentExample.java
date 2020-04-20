@@ -11,7 +11,7 @@ public class DeparmentExample {
     protected List<Criteria> oredCriteria;
 
     public DeparmentExample() {
-        oredCriteria = new ArrayList<>();
+        oredCriteria = new ArrayList<Criteria>();
     }
 
     public void setOrderByClause(String orderByClause) {
@@ -68,7 +68,7 @@ public class DeparmentExample {
 
         protected GeneratedCriteria() {
             super();
-            criteria = new ArrayList<>();
+            criteria = new ArrayList<Criterion>();
         }
 
         public boolean isValid() {
@@ -165,72 +165,72 @@ public class DeparmentExample {
         }
 
         public Criteria andNameIsNull() {
-            addCriterion("`name` is null");
+            addCriterion("name is null");
             return (Criteria) this;
         }
 
         public Criteria andNameIsNotNull() {
-            addCriterion("`name` is not null");
+            addCriterion("name is not null");
             return (Criteria) this;
         }
 
         public Criteria andNameEqualTo(String value) {
-            addCriterion("`name` =", value, "name");
+            addCriterion("name =", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameNotEqualTo(String value) {
-            addCriterion("`name` <>", value, "name");
+            addCriterion("name <>", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameGreaterThan(String value) {
-            addCriterion("`name` >", value, "name");
+            addCriterion("name >", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("`name` >=", value, "name");
+            addCriterion("name >=", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameLessThan(String value) {
-            addCriterion("`name` <", value, "name");
+            addCriterion("name <", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("`name` <=", value, "name");
+            addCriterion("name <=", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameLike(String value) {
-            addCriterion("`name` like", value, "name");
+            addCriterion("name like", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameNotLike(String value) {
-            addCriterion("`name` not like", value, "name");
+            addCriterion("name not like", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameIn(List<String> values) {
-            addCriterion("`name` in", values, "name");
+            addCriterion("name in", values, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameNotIn(List<String> values) {
-            addCriterion("`name` not in", values, "name");
+            addCriterion("name not in", values, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("`name` between", value1, value2, "name");
+            addCriterion("name between", value1, value2, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("`name` not between", value1, value2, "name");
+            addCriterion("name not between", value1, value2, "name");
             return (Criteria) this;
         }
 
@@ -295,122 +295,62 @@ public class DeparmentExample {
         }
 
         public Criteria andCountIsNull() {
-            addCriterion("`count` is null");
+            addCriterion("count is null");
             return (Criteria) this;
         }
 
         public Criteria andCountIsNotNull() {
-            addCriterion("`count` is not null");
+            addCriterion("count is not null");
             return (Criteria) this;
         }
 
         public Criteria andCountEqualTo(Long value) {
-            addCriterion("`count` =", value, "count");
+            addCriterion("count =", value, "count");
             return (Criteria) this;
         }
 
         public Criteria andCountNotEqualTo(Long value) {
-            addCriterion("`count` <>", value, "count");
+            addCriterion("count <>", value, "count");
             return (Criteria) this;
         }
 
         public Criteria andCountGreaterThan(Long value) {
-            addCriterion("`count` >", value, "count");
+            addCriterion("count >", value, "count");
             return (Criteria) this;
         }
 
         public Criteria andCountGreaterThanOrEqualTo(Long value) {
-            addCriterion("`count` >=", value, "count");
+            addCriterion("count >=", value, "count");
             return (Criteria) this;
         }
 
         public Criteria andCountLessThan(Long value) {
-            addCriterion("`count` <", value, "count");
+            addCriterion("count <", value, "count");
             return (Criteria) this;
         }
 
         public Criteria andCountLessThanOrEqualTo(Long value) {
-            addCriterion("`count` <=", value, "count");
+            addCriterion("count <=", value, "count");
             return (Criteria) this;
         }
 
         public Criteria andCountIn(List<Long> values) {
-            addCriterion("`count` in", values, "count");
+            addCriterion("count in", values, "count");
             return (Criteria) this;
         }
 
         public Criteria andCountNotIn(List<Long> values) {
-            addCriterion("`count` not in", values, "count");
+            addCriterion("count not in", values, "count");
             return (Criteria) this;
         }
 
         public Criteria andCountBetween(Long value1, Long value2) {
-            addCriterion("`count` between", value1, value2, "count");
+            addCriterion("count between", value1, value2, "count");
             return (Criteria) this;
         }
 
         public Criteria andCountNotBetween(Long value1, Long value2) {
-            addCriterion("`count` not between", value1, value2, "count");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsParentIsNull() {
-            addCriterion("is_parent is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsParentIsNotNull() {
-            addCriterion("is_parent is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsParentEqualTo(Boolean value) {
-            addCriterion("is_parent =", value, "isParent");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsParentNotEqualTo(Boolean value) {
-            addCriterion("is_parent <>", value, "isParent");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsParentGreaterThan(Boolean value) {
-            addCriterion("is_parent >", value, "isParent");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsParentGreaterThanOrEqualTo(Boolean value) {
-            addCriterion("is_parent >=", value, "isParent");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsParentLessThan(Boolean value) {
-            addCriterion("is_parent <", value, "isParent");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsParentLessThanOrEqualTo(Boolean value) {
-            addCriterion("is_parent <=", value, "isParent");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsParentIn(List<Boolean> values) {
-            addCriterion("is_parent in", values, "isParent");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsParentNotIn(List<Boolean> values) {
-            addCriterion("is_parent not in", values, "isParent");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsParentBetween(Boolean value1, Boolean value2) {
-            addCriterion("is_parent between", value1, value2, "isParent");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsParentNotBetween(Boolean value1, Boolean value2) {
-            addCriterion("is_parent not between", value1, value2, "isParent");
+            addCriterion("count not between", value1, value2, "count");
             return (Criteria) this;
         }
 
@@ -625,9 +565,8 @@ public class DeparmentExample {
         }
     }
 
-    /**
-     */
     public static class Criteria extends GeneratedCriteria {
+
         protected Criteria() {
             super();
         }

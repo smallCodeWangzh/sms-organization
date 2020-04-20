@@ -1,5 +1,12 @@
 package com.briup.organization.util;
 
+import com.briup.organization.exception.CustomerException;
+import com.dingtalk.api.DefaultDingTalkClient;
+import com.dingtalk.api.DingTalkClient;
+import com.dingtalk.api.request.OapiGettokenRequest;
+import com.dingtalk.api.response.OapiGettokenResponse;
+import com.taobao.api.ApiException;
+
 /**
  * 钉钉相关，所有跟钉钉相关的常量必须写在这里面
  * @author wangzh@briup.com
@@ -30,4 +37,27 @@ public class DingDingUtil {
      */
     public static final String DEPARTMENT_MEMBER_GET = "https://oapi.dingtalk.com/user/getDeptMember";
 
+
+    /**
+     *  获取access_token值
+     */
+    public  String getToken() throws CustomerException {
+        try {
+            //钉钉官方文档获取token
+            //地址：https://ding-doc.dingtalk.com/doc#/serverapi2/eev437
+            DingTalkClient client = new DefaultDingTalkClient(TOKEN_URL);
+            OapiGettokenRequest req = new OapiGettokenRequest();
+            req.setAppkey(APP_KEY);
+            req.setAppsecret(APP_SECRET);
+            req.setHttpMethod("GET");
+            OapiGettokenResponse rsp = null;
+            rsp = client.execute(req);
+
+            String token = rsp.getAccessToken();
+            return token;
+        }catch (ApiException e){
+            throw new CustomerException(CodeStatus.ERROR);
+        }
+
+    }
 }

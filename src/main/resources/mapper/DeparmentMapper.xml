@@ -6,7 +6,6 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="parent_id" jdbcType="BIGINT" property="parentId" />
     <result column="count" jdbcType="BIGINT" property="count" />
-    <result column="is_parent" jdbcType="BOOLEAN" property="isParent" />
     <result column="crowd" jdbcType="VARCHAR" property="crowd" />
     <result column="backup1" jdbcType="VARCHAR" property="backup1" />
     <result column="backup2" jdbcType="VARCHAR" property="backup2" />
@@ -70,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, `name`, parent_id, `count`, is_parent, crowd, backup1, backup2
+    id, name, parent_id, count, crowd, backup1, backup2
   </sql>
   <select id="selectByExample" parameterType="com.briup.organization.bean.DeparmentExample" resultMap="BaseResultMap">
     select
@@ -87,7 +86,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from tb_deparment
     where id = #{id,jdbcType=BIGINT}
@@ -102,28 +101,28 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.briup.organization.bean.Deparment" useGeneratedKeys="true">
-    insert into tb_deparment (`name`, parent_id, `count`, 
-      is_parent, crowd, backup1, 
+  <insert id="insert" parameterType="com.briup.organization.bean.Deparment">
+    insert into tb_deparment (id, name, parent_id,
+      count, crowd, backup1,
       backup2)
-    values (#{name,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, #{count,jdbcType=BIGINT}, 
-      #{isParent,jdbcType=BOOLEAN}, #{crowd,jdbcType=VARCHAR}, #{backup1,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT},
+      #{count,jdbcType=BIGINT}, #{crowd,jdbcType=VARCHAR}, #{backup1,jdbcType=VARCHAR},
       #{backup2,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.briup.organization.bean.Deparment" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="com.briup.organization.bean.Deparment">
     insert into tb_deparment
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="name != null">
-        `name`,
+        name,
       </if>
       <if test="parentId != null">
         parent_id,
       </if>
       <if test="count != null">
-        `count`,
-      </if>
-      <if test="isParent != null">
-        is_parent,
+        count,
       </if>
       <if test="crowd != null">
         crowd,
@@ -136,6 +135,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
@@ -144,9 +146,6 @@
       </if>
       <if test="count != null">
         #{count,jdbcType=BIGINT},
-      </if>
-      <if test="isParent != null">
-        #{isParent,jdbcType=BOOLEAN},
       </if>
       <if test="crowd != null">
         #{crowd,jdbcType=VARCHAR},
@@ -172,16 +171,13 @@
         id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.name != null">
-        `name` = #{record.name,jdbcType=VARCHAR},
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.parentId != null">
         parent_id = #{record.parentId,jdbcType=BIGINT},
       </if>
       <if test="record.count != null">
-        `count` = #{record.count,jdbcType=BIGINT},
-      </if>
-      <if test="record.isParent != null">
-        is_parent = #{record.isParent,jdbcType=BOOLEAN},
+        count = #{record.count,jdbcType=BIGINT},
       </if>
       <if test="record.crowd != null">
         crowd = #{record.crowd,jdbcType=VARCHAR},
@@ -200,13 +196,12 @@
   <update id="updateByExample" parameterType="map">
     update tb_deparment
     set id = #{record.id,jdbcType=BIGINT},
-      `name` = #{record.name,jdbcType=VARCHAR},
-      parent_id = #{record.parentId,jdbcType=BIGINT},
-      `count` = #{record.count,jdbcType=BIGINT},
-      is_parent = #{record.isParent,jdbcType=BOOLEAN},
-      crowd = #{record.crowd,jdbcType=VARCHAR},
-      backup1 = #{record.backup1,jdbcType=VARCHAR},
-      backup2 = #{record.backup2,jdbcType=VARCHAR}
+    name = #{record.name,jdbcType=VARCHAR},
+    parent_id = #{record.parentId,jdbcType=BIGINT},
+    count = #{record.count,jdbcType=BIGINT},
+    crowd = #{record.crowd,jdbcType=VARCHAR},
+    backup1 = #{record.backup1,jdbcType=VARCHAR},
+    backup2 = #{record.backup2,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -215,16 +210,13 @@
     update tb_deparment
     <set>
       <if test="name != null">
-        `name` = #{name,jdbcType=VARCHAR},
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="parentId != null">
         parent_id = #{parentId,jdbcType=BIGINT},
       </if>
       <if test="count != null">
-        `count` = #{count,jdbcType=BIGINT},
-      </if>
-      <if test="isParent != null">
-        is_parent = #{isParent,jdbcType=BOOLEAN},
+        count = #{count,jdbcType=BIGINT},
       </if>
       <if test="crowd != null">
         crowd = #{crowd,jdbcType=VARCHAR},
@@ -240,10 +232,9 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.briup.organization.bean.Deparment">
     update tb_deparment
-    set `name` = #{name,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
       parent_id = #{parentId,jdbcType=BIGINT},
-      `count` = #{count,jdbcType=BIGINT},
-      is_parent = #{isParent,jdbcType=BOOLEAN},
+      count = #{count,jdbcType=BIGINT},
       crowd = #{crowd,jdbcType=VARCHAR},
       backup1 = #{backup1,jdbcType=VARCHAR},
       backup2 = #{backup2,jdbcType=VARCHAR}
