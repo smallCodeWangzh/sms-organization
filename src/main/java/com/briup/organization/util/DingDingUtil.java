@@ -18,5 +18,16 @@ public class DingDingUtil {
      */
     public static final String TOKEN_URL = "https://oapi.dingtalk.com/gettoken";
 
+    /**
+     * 根据用户id获取用户详情的URL
+     * cuigx 修改
+     */
+    public static final String USER_GET = "https://oapi.dingtalk.com/user/get";
+
+    /**
+     * 根据部门id获取用户id列表的URL
+     * cuigx 修改
+     */
+    public static final String DEPARTMENT_MEMBER_GET = "https://oapi.dingtalk.com/user/getDeptMember";
 
 }
