@@ -13,6 +13,13 @@ spring:
     url: jdbc:mysql://172.16.0.47:3306/sms?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
     username: root
     password: 123456
+    hikari:
+      connection-timeout: 600000000
+#日志信息的配置
+logging:
+  level:
+    com.briup.organization.mapper.ex: DEBUG
+
 #Mybatis的配置
 mybatis:
   mapper-locations: classpath:mapper/*.xml
