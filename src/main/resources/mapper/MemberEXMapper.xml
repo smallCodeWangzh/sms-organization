@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.organization.mapper.ex.MemberExMapper">
+
+  <insert id="insertWithDingId" parameterType="com.briup.organization.bean.Member">
+    insert into tb_member (`id`, `name`, email, work_address,
+      school_clazz, graduate_school, role_name,
+      phone, `position`, `status`,
+      backup1, backup2)
+    values (#{id,jdbcType=BIGINT},#{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{workAddress,jdbcType=VARCHAR},
+      #{schoolClazz,jdbcType=VARCHAR}, #{graduateSchool,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR},
+      #{phone,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, #{status,jdbcType=BOOLEAN},
+      #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR})
+  </insert>
+
+  <select id="getAllMembersByDeptId" parameterType="String" resultMap="com.briup.organization.mapper.MemberMapper.BaseResultMap">
+    select * from tb_deparment_member dm,tb_member m
+    where dm.member_id = m.id and dm.deparment_id = #{deptId,jdbcType=BIGINT}
+  </select>
+
+</mapper>

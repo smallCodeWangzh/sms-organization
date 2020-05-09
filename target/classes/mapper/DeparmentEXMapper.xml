@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.organization.mapper.ex.DeparmentExMapper">
+
+  <insert id="insertDeparmentList" parameterType="java.util.List" useGeneratedKeys="false">
+
+    insert into tb_deparment
+    (id,name,parent_id,count,crowd)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (
+      #{item.id},
+      #{item.name},
+      #{item.parentId},
+      #{item.count},
+      #{item.crowd}
+      )
+    </foreach>
+  </insert>
+</mapper>

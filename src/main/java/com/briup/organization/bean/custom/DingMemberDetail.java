@@ -1,6 +1,7 @@
 package com.briup.organization.bean.custom;
 
 import com.briup.organization.util.DingTalkMessage;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DingMemberDetail extends DingTalkMessage {
     @ApiModelProperty(value = "员工在当前开发者企业账号范围内的唯一标识，系统生成，固定值，不会改变")
     private String unionid;
@@ -29,12 +31,8 @@ public class DingMemberDetail extends DingTalkMessage {
     private String userid;
     @ApiModelProperty(value = "在对应的部门中是否为主管：Map结构的json字符串，key是部门的Id，value是人员在这个部门中是否为主管，true表示是，false表示不是")
     private String isLeaderInDepts;
-    @ApiModelProperty(value = "是否为企业的老板，true表示是，false表示不是")
-    private boolean isBoss;
     @ApiModelProperty(value = "入职时间。Unix时间戳 （在OA后台通讯录中的员工基础信息中维护过入职时间才会返回)")
     private long hiredDate;
-    @ApiModelProperty(value = "")
-    private boolean isSenior;
     @ApiModelProperty(value = "分机号（仅限企业内部开发调用）")
     private String tel;
     @ApiModelProperty(value = "成员所属部门id列表")
@@ -51,10 +49,6 @@ public class DingMemberDetail extends DingTalkMessage {
     private boolean active;
     @ApiModelProperty(value = "头像url")
     private String avatar;
-    @ApiModelProperty(value = "是否为企业的管理员，true表示是，false表示不是")
-    private boolean isAdmin;
-    @ApiModelProperty(value = "是否号码隐藏，true表示隐藏，false表示不隐藏")
-    private boolean isHide;
     @ApiModelProperty(value = "员工工号")
     private String jobnumber;
     @ApiModelProperty(value = "员工名字")
@@ -67,5 +61,17 @@ public class DingMemberDetail extends DingTalkMessage {
     @ApiModelProperty(value = "职位信息")
     private String position;
     @ApiModelProperty(value = "用户所在角色列表")
-    private List<DingRole> roles;
+    private DingRole[] roles;
+
+    //以下是争议字段，boolean类型
+    @ApiModelProperty(value = "是否为企业的管理员，true表示是，false表示不是")
+    private boolean isAdmin;
+    @ApiModelProperty(value = "是否号码隐藏，true表示隐藏，false表示不隐藏")
+    private boolean isHide;
+    @ApiModelProperty(value = "")
+    private boolean isSenior;
+    @ApiModelProperty(value = "是否为企业的老板，true表示是，false表示不是")
+    private boolean isBoss;
+
+
 }

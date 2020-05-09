@@ -41,7 +41,7 @@ public class DingDingUtil {
     /**
      *  获取access_token值
      */
-    public  String getToken() throws CustomerException {
+    public static  String getToken() throws CustomerException {
         try {
             //钉钉官方文档获取token
             //地址：https://ding-doc.dingtalk.com/doc#/serverapi2/eev437
