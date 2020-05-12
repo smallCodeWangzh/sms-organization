@@ -28,12 +28,9 @@ import javax.servlet.http.HttpServletResponse;
  * ClassName:ExcelUtils <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason: TODO ADD REASON. <br/>
- * Date: 2018年7月3日 上午8:57:12 <br/>
- * 
- * @author lichunyu
- * @version
- * @since JDK 1.6
- * @see
+ *
+ * @Author: GX Cui
+ * @Date 4:40 下午 2020/5/11
  */
 @SuppressWarnings("deprecation")
 public class ExcelUtils {

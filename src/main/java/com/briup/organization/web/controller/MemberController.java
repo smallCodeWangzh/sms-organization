@@ -4,6 +4,7 @@ import com.briup.organization.bean.Member;
 import com.briup.organization.exception.CustomerException;
 import com.briup.organization.service.impl.MemberImpl;
 import com.briup.organization.util.CodeStatus;
+import com.briup.organization.util.ExcelUtils;
 import com.briup.organization.util.Message;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.Api;
@@ -12,12 +13,11 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description: 成员管理访问接口
@@ -51,17 +51,70 @@ public class MemberController {
         return ResponseEntity.ok(new Message(CodeStatus.SUCCESS,list));
     }
 
+    @ApiOperation(value = "根据成员id查询详情")
+    @GetMapping("/single/{id}")
+    public ResponseEntity<Message> queryMemberDetailById(@PathVariable String id) throws CustomerException{
+        return ResponseEntity.ok(new Message(CodeStatus.SUCCESS,memberService.getMemberDetailById(id)));
+    }
+
     @ApiOperation(value = "新增成员")
     @GetMapping("/")
-    public ResponseEntity<Message> addMember() throws CustomerException{
+    public ResponseEntity<Message> addMember(Member member) throws CustomerException{
+        return ResponseEntity.ok(new Message(CodeStatus.SUCCESS));
+    }
+
+    @ApiOperation(value = "修改单个成员")
+    @PutMapping("/")
+    public ResponseEntity<Message> updateMember(Member member) throws CustomerException{
+        return ResponseEntity.ok(new Message(CodeStatus.SUCCESS));
+    }
+
+    @ApiOperation(value = "删除多个成员")
+    @DeleteMapping("/")
+    public ResponseEntity<Message> bulkDeleteMember(@RequestParam List<String> ids) throws CustomerException{
+        return ResponseEntity.ok(new Message(CodeStatus.SUCCESS));
+    }
+
+
+    @ApiOperation(value = "下载excel模版",notes="注意！测试的时候请将地址粘贴到浏览器地址栏测试",produces ="application/octet-stream")
+    @GetMapping("/download")
+    public ResponseEntity<Message> downloadExcelTemplate(HttpServletResponse response) throws CustomerException{
+        //提供文件下载，文件路径未项目路径file包
 
         return ResponseEntity.ok(new Message(CodeStatus.SUCCESS));
     }
 
-    @ApiOperation(value = "根据成员id查询详情")
-    @GetMapping("/single/{id}")
-    public ResponseEntity<Message> queryMemberDetailById() throws CustomerException{
-
+    @ApiOperation(value = "根据部门id导出部门成员列表-Excel")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "select", value = "是否勾选 仅导出未激活员工，1代表勾选，其余参数代表未勾选", paramType = "query"),
+            @ApiImplicitParam(name = "ids", value = "选择的员工的id列表，使用逗号隔开", paramType = "query"),
+            @ApiImplicitParam(name = "title", value = "自定义导出字段，多个字段用逗号隔开，为空默认导出全部", paramType = "query"),
+    }
+    )
+    @GetMapping("/export/{select}/{ids}")
+    public ResponseEntity<Message> downloadExcelWithMember(@PathVariable int select,
+                                                           @PathVariable String ids,
+                                                           @RequestParam String title) throws CustomerException{
+        // 查询出所有当前部门的成员信息
+//        String excelName = "member_list";
+//        String[] headList = new String[]{"编号","标题","内容"};
+//        String[] fieldList = new String[]{"id","title","content"};
+//        List<Map<String, Object>> dataList = new ArrayList<>();
+//        List<Article> list =articleService.findAll();
+//        for(Article a : list){
+//            Map<String, Object> map = new HashMap<>();
+//            map.put("id",a.getId());
+//            map.put("title",a.getTitle());
+//            map.put("content",a.getContent());
+//            dataList.add(map);
+//        }
+//
+//        //调用工具类导出excel
+//        try {
+//            ExcelUtils.createExcel(response,excelName,headList,fieldList,dataList);
+//        } catch (Exception e) {
+//            return ResponseEntity.ok(new Message(CodeStatus.ERROR));
+//        }
 
         return ResponseEntity.ok(new Message(CodeStatus.SUCCESS));
     }

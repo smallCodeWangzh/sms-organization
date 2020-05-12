@@ -151,6 +151,20 @@ public class MemberImpl implements MemberService {
         return memberExMapper.getAllMembersByDeptId(deptId);
     }
 
+    @Override
+    public Member getMemberDetailById(String id) throws CustomerException {
+        return memberMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public void addMember(Member member) throws CustomerException {
+
+        //钉钉官方添加，获得钉钉官方ID
+
+        //本地数据库添加
+
+    }
+
     /* 私有方法封装  */
     /**
      * @Description: 根据用户id获取用户详情
@@ -193,6 +207,8 @@ public class MemberImpl implements MemberService {
         return rsp.getBody();
     }
 
-
+    private String createUser(){
+        return null;
+    }
 
 }

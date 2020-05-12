@@ -27,4 +27,19 @@ public interface MemberService {
      * @throws CustomerException
      */
     public List<Member> getMembersByDeptId(String deptId) throws CustomerException;
+
+    /**
+     * 根据成员id在本地数据库中查询
+     * @param id
+     * @return
+     * @throws CustomerException
+     */
+    public Member getMemberDetailById(String id) throws CustomerException;
+
+    /**
+     * 新增成员
+     * @param member
+     * @throws CustomerException
+     */
+    public void addMember(Member member) throws CustomerException;
 }
