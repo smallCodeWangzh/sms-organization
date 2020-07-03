@@ -17,10 +17,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.http.ResponseEntity;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -189,7 +191,7 @@ public class ExcelUtils {
 	 * @throws Exception
 	 */
 	public static void createExcel(HttpServletResponse response, String excelName,String[] headList, String[] fieldList,
-								   List<Map<String, Object>> dataList) throws Exception {
+								   List<Map<String, Object>> dataList){
 		try {
 			// 创建新的Excel 工作簿
 			XSSFWorkbook workbook = new XSSFWorkbook();
@@ -236,7 +238,6 @@ public class ExcelUtils {
 				//FileOutputStream fos = new FileOutputStream(excel_name);
 				// 把相应的Excel 工作簿存盘
 				workbook.write(os);
-
 			}finally {
 				os.flush();
 				// 操作结束，关闭文件
@@ -246,7 +247,6 @@ public class ExcelUtils {
 			}
 		} catch (Exception e){
 			e.printStackTrace();
-			throw e;
 		}
 	}
 }

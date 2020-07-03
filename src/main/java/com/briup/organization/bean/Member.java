@@ -1,6 +1,8 @@
 package com.briup.organization.bean;
 
 import java.io.Serializable;
+
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 /**

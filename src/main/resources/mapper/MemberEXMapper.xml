@@ -18,4 +18,41 @@
     where dm.member_id = m.id and dm.deparment_id = #{deptId,jdbcType=BIGINT}
   </select>
 
+  <insert id ="insertMemberBatch" parameterType="java.util.List" >
+    <selectKey resultType ="java.lang.Integer" keyProperty= "id" order= "AFTER">
+            SELECT LAST_INSERT_ID();
+    </selectKey >
+            insert into tb_member(
+                `id`, `name`, email, work_address,school_clazz, graduate_school, role_name,phone, `position`, `status`,backup1, backup2
+            )
+            values
+            <foreach collection ="list" item="member" index= "index" separator =",">
+              (
+                #{member.id},
+                #{member.name},
+                #{member.email},
+                #{member.workAddress},
+                #{member.schoolClazz},
+                #{member.graduateSchool},
+                #{member.roleName},
+                #{member.phone},
+                #{member.position},
+                #{member.status},
+                #{member.backup1},
+                #{member.backup2}
+              )
+          </foreach>
+ </insert >
+
+  <update id="truncateTable" parameterType="String">
+    truncate table ${tableName}
+  </update>
+
+    <delete id="deleteByIds" parameterType="java.util.List">
+        delete from tb_member where id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
 </mapper>

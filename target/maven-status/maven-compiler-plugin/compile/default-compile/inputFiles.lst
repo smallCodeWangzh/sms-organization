@@ -1,6 +1,7 @@
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/bean/DeparmentMemberKey.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/bean/MemberExample.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/bean/custom/DingRole.java
+/Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/util/MemberFiled.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/service/impl/MemberImpl.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/mapper/ex/MemberExMapper.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/mapper/MemberMapper.java
@@ -12,10 +13,12 @@
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/util/GetAccessTokenUtil.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/bean/DeparmentExample.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/exception/CustomerException.java
+/Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/util/ExcelUtils.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/bean/Member.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/util/DingTalkMessage.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/mapper/DeparmentMapper.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/util/DingDingUtil.java
+/Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/bean/custom/DingID.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/bean/custom/DingMemberDetail.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/service/MemberService.java
 /Users/mastercgx/Documents/project/ideaworkspace/sms-organization/src/main/java/com/briup/organization/bean/custom/Token.java

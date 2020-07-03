@@ -37,6 +37,31 @@ public class DingDingUtil {
      */
     public static final String DEPARTMENT_MEMBER_GET = "https://oapi.dingtalk.com/user/getDeptMember";
 
+    /**
+     * 成员表全部属性定义
+     * cuigx修改
+     */
+    public static final String MEMBER_ALL_FILED = "编号,姓名,企业邮箱,工作地点,学校班级,毕业学校,角色,手机,职位,工号,是否激活,备用字段1,备用字段2";
+
+    /**
+     * 添加单个用户
+     * cuigx修改
+     */
+    public static final String USER_CREATE = "https://oapi.dingtalk.com/user/create";
+
+    /**
+     * 删除单个用户
+     * cuigx修改
+     */
+    public static final String USER_DELETE = "https://oapi.dingtalk.com/user/delete";
+
+    /**
+     * 修改单个用户
+     * cuigx修改
+     */
+    public static final String USER_UPDATE = "https://oapi.dingtalk.com/user/update";
+
+
 
     /**
      *  获取access_token值

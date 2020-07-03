@@ -23,4 +23,22 @@ public interface MemberExMapper {
       * @return
       */
      List<Member> getAllMembersByDeptId(String deptId);
+
+     /**
+      * 批量插入成员
+      * @param memberList
+      */
+     void insertMemberBatch(List<Member> memberList);
+
+     /**
+      * 根据数据库表名清空表数据
+      * @param tableName
+      */
+     void truncateTable(String tableName);
+
+     /**
+      * 根据id集合批量删除
+      * @param ids
+      */
+     void deleteByIds(List<String> ids);
 }
