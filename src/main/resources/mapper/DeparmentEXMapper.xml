@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.briup.organization.mapper.ex.DeparmentExMapper">
 
+  <update id="truncateTableDeparment">
+    truncate table tb_deparment
+  </update>
   <insert id="insertDeparmentList" parameterType="java.util.List" useGeneratedKeys="false">
 
     insert into tb_deparment
